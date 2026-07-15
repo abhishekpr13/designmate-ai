@@ -1,0 +1,25 @@
+# Secrets — NEVER commit
+.env
+*.env
+.env.*
+# ...but keep the safe placeholder
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Vector store (generated artifact — rebuild via ingest.py)
+vectorstore/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
