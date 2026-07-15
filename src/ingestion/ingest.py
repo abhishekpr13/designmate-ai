@@ -43,7 +43,10 @@ def embed_and_store(chunks, persist_dir: str):
         documents=chunks,
         embedding=embeddings,
         persist_directory=persist_dir,
-        collection_name="designmate_docs"
+        collection_name="designmate_docs",
+        # Use cosine similarity (standard for text embeddings) instead of the
+        # default L2 distance, so relevance scores stay in a clean 0-1 range.
+        collection_metadata={"hnsw:space": "cosine"}
     )
     
     print(f"Done. Vectorstore saved to: {persist_dir}")
